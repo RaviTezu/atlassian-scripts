@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-### --- A Python script which connects to JIRA REST API for creating issues --- ###
+### --- A Python script which connects to JIRA REST API for creating issues and attaching .txt files --- ###
 
 import datetime
 import smtplib
@@ -59,12 +59,12 @@ def jiraConnect(user, pswd, host, issue):
         filepath = "/tmp/*.txt"
         files =  glob.glob(filepath)
         if len(files)==0:
-            sendmail("failed","Evidence files doesn't exist, attaching failed.")
+            sendmail("failed","Issue created, however file attaching failed")
             exit(1)
         else:
         for file in files:
             jira.add_attachment(issue,file)
-        sendmail("success","Ticket has been created with the required evidence attached!")
+        sendmail("success","Ticket has been created with required files attached!")
         
 #main def
 def main():
