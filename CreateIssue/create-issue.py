@@ -41,6 +41,8 @@ def prepSummary(ticket):
                    'issuetype':{'name': 'Ops Work Request'},
                    'components':[{"id": "10111"}],
     }
+    #components entry can be dropped if not required.
+    #To get the components and their id's: components = jira.project_components(issue_type)
     return issue_dict
 
 #Connect to jira for authentication
@@ -63,7 +65,8 @@ def jiraConnect(user, pswd, host, issue):
             exit(1)
         else:
         for file in files:
-            jira.add_attachment(issue,file)
+            jira.add_attachment(new_issue,file)
+            jira.add_comment(new_issue, 'Required files are Attached!')
         sendmail("success","Ticket has been created with the required evidence attached!")
         
 #main def
