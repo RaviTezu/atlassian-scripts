@@ -36,7 +36,7 @@ def sendmail(status, msg):
 def prepSummary(ticket):
     issue_dict = {
                    'project': {'key': ticket},
-                   'summary': "Ticket summary gos here",
+                   'summary': "Ticket summary goes here",
                    'description': "Ticket description goes here...",
                    'issuetype':{'name': 'Ops Work Request'},
                    'components':[{"id": "10111"}],
