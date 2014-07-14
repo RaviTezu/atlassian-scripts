@@ -17,6 +17,8 @@ except ImportError:
 ##Mail sender/receiver list:
 sender = "jira@hostname.com" + os.uname()[1] 
 receivers = ['user1@example.com, user2@example.com']
+#Attaches .txt files under this location
+filepath = "/tmp/*.txt"
 
 ##send a mail:
 def sendmail(status, msg):
@@ -28,6 +30,7 @@ def sendmail(status, msg):
         smtpObj = smtplib.SMTP('localhost')
         smtpObj.sendmail(sender, receivers, message)
     except:
+        #This is a bare except and not recommended to use it this way!
         logger.error("Unable to send email")
         exit(1)
 
@@ -58,7 +61,6 @@ def jiraConnect(user, pswd, host, issue):
         new_issue = jira.create_issue(fields=tckt)
         print new_issue
         #Attaches the *.txt files under /tmp directory.
-        filepath = "/tmp/*.txt"
         files =  glob.glob(filepath)
         if len(files)==0:
             sendmail("failed","Issue created, however file attaching failed")
