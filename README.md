@@ -21,9 +21,10 @@ A collection of JIRA, BAMBOO and CONFLUENCE python scripts.
 **BAMBOO**:
 ==============================================================
 
-1. Bamboo_rest_api_client:-
+1. BambooRestAPIClient:-
 ==============================================================
 - You need to install "requests" module for this script to work. -> `pip install requests`
 - Make sure to change the user credentails and bamboo hostname in the script.
 - Creates a new session everytime the script is executed, It can print the projects, plans, build on Bamboo. 
 - Tested on Python 2.7
+- You can google for available APIs which Bamboo provides.
