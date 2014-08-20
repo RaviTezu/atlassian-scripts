@@ -107,5 +107,6 @@ if __name__ == '__main__':
     #rcl.currentUser(session)
     rcl.buildInfo(session)
     rcl.resultInfo(session)
+    #Checking for successful deployments
     print rcl.deployProjects(session)
     rcl.closeconn(session)
