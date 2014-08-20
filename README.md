@@ -27,4 +27,5 @@ A collection of JIRA, BAMBOO and CONFLUENCE python scripts.
 - Make sure to change the user credentails and bamboo hostname in the script.
 - Creates a new session everytime the script is executed, It can print the projects, plans, build on Bamboo. 
 - Tested on Python 2.7
+- This is basically being written for generating reports for deployments.
 - You can google for available APIs which Bamboo provides.
