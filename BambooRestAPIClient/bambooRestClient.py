@@ -78,6 +78,21 @@ class Bclient(object):
             print("Link: ", plan["link"]["href"])
             print("LifeCycle State: ", plan["lifeCycleState"])
             print("\n")
+
+    def deployProjects(self,s):
+        """ List all deployment projects """
+        dps = json.loads(s.get(self.url + "/deploy/dashboard").text)
+        dp_dict = {}
+        for dp in dps:
+            for env in dp["environmentStatuses"]:
+                #Making sure it is of prod. Environment and successfully deployed.
+                if env["environment"]["name"].lower() == "prod" and env["deploymentResult"]["deploymentState"].lower() == "success":
+                    dp_dict[dp["deploymentProject"]["id"]] = []
+                    dp_dict[dp["deploymentProject"]["id"]].append(dp["deploymentProject"]["name"])
+                    dp_dict[dp["deploymentProject"]["id"]].append(epochtoDate(env["deploymentResult"]["finishedDate"]))
+        return dp_dict
+
+
          
     def closeconn(self, s):
         """ Closes the Session """
@@ -92,4 +107,5 @@ if __name__ == '__main__':
     #rcl.currentUser(session)
     rcl.buildInfo(session)
     rcl.resultInfo(session)
+    print rcl.deployProjects(session)
     rcl.closeconn(session)
