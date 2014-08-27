@@ -1,4 +1,9 @@
 bambooRestClient.py:
-================
+====================
+- This script can be used for connecting to Bamboo REST API and get the info. about Projects, Plans, Jobs, Stages and Builds etc.
 
-This script can be used for connecting to Bamboo REST API and get the info. about Projects, Plans, Jobs, Stages and Builds etc.
+bambooReleases.py:
+====================
+- This script can be used for connecting to Bamboo DB and get the list of releases which happened on a particular day. 
+- Make sure to replace the <> parameters before running the script.
+- This script works fine on Bamboo 5.3. 
