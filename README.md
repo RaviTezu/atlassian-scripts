@@ -30,4 +30,11 @@ A collection of JIRA, BAMBOO and CONFLUENCE python scripts.
 - This is basically being written for generating reports for deployments.
 - You can google for available APIs which Bamboo provides.
 
-2. 
+2. BamboReleases:-
+==============================================================
+- You need to install "psycopg2" module for this script to work. -> `pip install psycopg2`
+- This script is written for POSTGRESQL db as backend for bamboo. You may need to use someother module and may need to do some tweaks to 
+the query which was used in the script. 
+- Make sure to change the user credentails and bamboo db/hostnames in the script. 
+- This is basically written for generating reports for deployments.
+ 
